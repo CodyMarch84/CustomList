@@ -1,0 +1,2 @@
+C:\Users\gcode_000\Desktop\DevCode Projects\C#Stuff\C#Projects\CustomList\CustomList\bin\Debug\CustomList.exe.config
+C:\Users\gcode_000\Desktop\DevCode Projects\C#Stuff\C# Projects\CustomList\CustomList\bin\Debug\CustomList.exe.config
