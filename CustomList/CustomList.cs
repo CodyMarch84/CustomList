@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    class CustomList<T>
+    public class CustomList<T>
     {
         // HOW TO OVERLOAD + (PLUS) OPERATOR
         public T[] array;
         private int count;
         public int capacity;
+        public readonly object customList;
 
         public int Count
         {
@@ -21,6 +22,12 @@ namespace CustomList
             }
         }
 
+        // indexer
+        public T this[int i]
+        {
+            get { return array[i]; }
+            set { array[i] = value; }
+        }
 
         public CustomList()
         {
@@ -53,5 +60,10 @@ namespace CustomList
             }
             count++;
         }
+
+        //public bool Remove()
+        //{
+
+        //}
     }
 }

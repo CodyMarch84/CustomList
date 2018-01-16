@@ -1,26 +1,65 @@
 ﻿using System;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using CustomList;
 
 namespace CustomListProjectTests
 {
     [TestClass]
     public class UnitTest1
-    {
+    {   
         [TestMethod]
-        public void TestMethod1()
+        public void Add_ValueIsInserted()
         {
-            // Arrange -- 
-            Addition addition = new Addition();
-            int num1 = 4;
-            int num2 = 3;
+            // Arrange
+            CustomList<int> customList = new CustomList<int>();
+            int expected = 5;
+
+            // Act
+            customList.Add(5);
+            int actual = customList[0];
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void Count_ItemsInArray()
+        {
+            // Arrange
+            CustomList<int> customList = new CustomList<int>();
             int expected = 7;
 
-            // Act --
-            int actual = addition.addTwoNumbers(num1, num2);
+            // Act
+            customList.Add(1);
+            customList.Add(2);
+            customList.Add(3);
+            customList.Add(4);
+            customList.Add(5);
+            customList.Add(6);
+            customList.Add(7);
+            int actual = customList.Count;
 
-            // Assert --
+            //Assert
             Assert.AreEqual(expected, actual);
-            // { 3, 5, 6, 5, 8, 2 }
+
+        }
+
+        [TestMethod]
+        public void LastItem()
+        {
+            // Arrange
+            CustomList<int> customList = new CustomList<int>();
+            int expected = 3;
+
+            // Act
+            customList.Add(1);
+            customList.Add(2);
+            customList.Add(3);
+            int actual = customList[2];
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+
         }
     }
+
 }
