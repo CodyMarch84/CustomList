@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    class Addition
+    public class Addition
     {
         public int addTwoNumbers(int firstValue, int secondValue)
         {
