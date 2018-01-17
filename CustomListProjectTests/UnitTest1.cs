@@ -84,13 +84,30 @@ namespace CustomListProjectTests
             // Arrange
             CustomList<int> customList = new CustomList<int>();
             customList.Add(2);
-            int notWanted = 2;
+            int itemToBeRemoved = 2;
 
             // Act
             customList.Remove(2);
 
             // Assert
-            Assert.AreNotEqual(notWanted, customList[0]);
+            Assert.AreNotEqual(itemToBeRemoved, customList[0]);
+        }
+
+        [TestMethod]
+        public void Remove_Objects()
+        {
+            // Arrange
+            CustomList<object> customList = new CustomList<object>();
+            object objectToBeRemoved = customList;
+
+            // Act
+            customList.Add(customList);
+            customList.Add(customList);
+            customList.Remove(customList);
+            customList.Remove(customList);
+            
+            // Assert
+            Assert.AreNotEqual(objectToBeRemoved, customList[0]);
         }
     }
 
