@@ -60,6 +60,38 @@ namespace CustomListProjectTests
             Assert.AreEqual(expected, actual);
 
         }
+
+        [TestMethod]
+        public void Remove_ListItem()
+        {
+            // Arrange
+            CustomList<int> customList = new CustomList<int>();
+            customList.Add(1);
+            customList.Add(2);
+            customList.Add(3);
+
+            // Act
+            int actual = customList.Count;
+            customList.Remove(2);
+
+            // Assert
+            Assert.AreNotEqual(actual, customList.Count);
+        }
+
+        [TestMethod]
+        public void Remove_EmptyList()
+        {
+            // Arrange
+            CustomList<int> customList = new CustomList<int>();
+            customList.Add(2);
+            int notWanted = 2;
+
+            // Act
+            customList.Remove(2);
+
+            // Assert
+            Assert.AreNotEqual(notWanted, customList[0]);
+        }
     }
 
 }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,8 @@ namespace CustomList
         private int count;
         public int capacity;
         public readonly object customList;
+        public T[] item;
+        public int tempCount;
 
         public int Count
         {
@@ -61,9 +64,33 @@ namespace CustomList
             count++;
         }
 
-        //public bool Remove()
-        //{
+        public bool Remove(T item)
+        {
+            bool removeItem = false;
+            T[] outcome = new T[capacity];
+            tempCount = 0;
 
-        //}
+            // for loop
+            for (int i = 0; i < count; i++)
+            {
+                if (array[i].Equals(item) && !removeItem)
+                {
+                    count--;
+                    outcome[i] = array[i + 1];
+                    removeItem = true;
+                }
+                else if (removeItem)
+                {
+                    outcome[i] = array[i + 1];
+                }
+                else
+                {
+                    outcome[i] = array[i];
+                }
+                
+            }
+            array = outcome;
+            return removeItem;
+        }
     }
 }
