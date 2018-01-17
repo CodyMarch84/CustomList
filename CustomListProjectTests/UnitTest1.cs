@@ -109,6 +109,48 @@ namespace CustomListProjectTests
             // Assert
             Assert.AreNotEqual(objectToBeRemoved, customList[0]);
         }
+
+        [TestMethod]
+        public void itemToString()
+        {
+            // Arrange
+            CustomList<int> customList = new CustomList<int>() { 2, 4, 6, 8 };
+
+            // Act
+            string actual = customList.ToString();
+            string expected = "2468";
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void intItemToString()
+        {
+            // Arrange
+            CustomList<string> customList = new CustomList<string>() { "1", "2", "3" };
+
+            // Act
+            string actual = customList.ToString();
+            string expected = "123";
+
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
+
+        [TestMethod]
+        public void emptyCustomListToString()
+        {
+            // Arrange
+            CustomList<string> customList = new CustomList<string>();
+
+            // Act
+            string expected = "";
+            string actual = customList.ToString();
+            
+            // Assert
+            Assert.AreEqual(expected, actual);
+        }
     }
 
 }

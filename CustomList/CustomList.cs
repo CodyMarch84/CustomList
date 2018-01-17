@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace CustomList
 {
-    public class CustomList<T>
+    public class CustomList<T> : IEnumerable
     {
         // HOW TO OVERLOAD + (PLUS) OPERATOR
         public T[] array;
@@ -91,6 +91,25 @@ namespace CustomList
             }
             array = outcome;
             return removeItem;
+        }
+
+        public IEnumerator GetEnumerator()
+        {
+            for  (int i = 0; i < count; i++)
+            {
+                yield return array[i];
+            }
+        }
+
+        public override string ToString()
+        {
+            string rtn = "";
+
+            for (int i = 0; i < count; i++)
+            {
+                rtn += array[i];
+            }
+            return rtn;
         }
     }
 }
